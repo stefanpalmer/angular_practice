@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Recipe } from '../recipe.model';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -8,22 +9,17 @@ import { Recipe } from '../recipe.model';
 })
 export class RecipeListComponent implements OnInit {
   @Output() recipeClicked = new EventEmitter<Recipe>();
+  recipes: Recipe[];
 
-  recipes: Recipe[] = [
-    new Recipe('Recipe 1', 'Description of Recipe 1', 'http://www.cryingoverspiltmilk.co.nz/wp-content/uploads/2015/03/pixabay/b/recipe_1426460443.png'),
-    new Recipe('Recipe 2', 'Description of Recipe 2', 'http://www.cryingoverspiltmilk.co.nz/wp-content/uploads/2015/03/pixabay/b/recipe_1426460443.png'),
-    new Recipe('Recipe 3', 'Description of Recipe 3', 'http://www.cryingoverspiltmilk.co.nz/wp-content/uploads/2015/03/pixabay/b/recipe_1426460443.png'),
-    new Recipe('Recipe 4', 'Description of Recipe 4', 'http://www.cryingoverspiltmilk.co.nz/wp-content/uploads/2015/03/pixabay/b/recipe_1426460443.png'),
-    new Recipe('Recipe 5', 'Description of Recipe 5', 'http://www.cryingoverspiltmilk.co.nz/wp-content/uploads/2015/03/pixabay/b/recipe_1426460443.png')
-  ];
+  constructor(private recipeService: RecipeService) {
+  }
+
+  ngOnInit() {
+    this.recipes = this.recipeService.getRecipes();
+  }
 
   passClicked(recipe: Recipe) {
     this.recipeClicked.emit(recipe);
-  }
-
-  constructor() { }
-
-  ngOnInit() {
   }
 
 }
