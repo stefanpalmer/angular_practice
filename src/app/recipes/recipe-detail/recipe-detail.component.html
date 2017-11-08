@@ -14,8 +14,6 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    {{recipe.description}}
-    <br><br>
     <div class="btn-group" appDropdown>
       <button
         type="button"
@@ -28,5 +26,17 @@
         <li><a href="#">Delete Recipe</a></li>
       </ul>
     </div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-xs-12">
+    {{recipe.description}}
+    <br><br>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+        {{ ingredient.name }} - {{ ingredient.amount }}
+      </li>
+    </ul>
   </div>
 </div>
