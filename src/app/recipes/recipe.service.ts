@@ -1,6 +1,9 @@
+import { EventEmitter } from '@angular/core';
 import { Recipe } from './recipe.model';
 
 export class RecipeService {
+  recipeClicked = new EventEmitter<Recipe>();
+
   private recipes: Recipe[] = [
     new Recipe('Recipe 1', 'Description of Recipe 1', 'http://www.cryingoverspiltmilk.co.nz/wp-content/uploads/2015/03/pixabay/b/recipe_1426460443.png'),
     new Recipe('Recipe 2', 'Description of Recipe 2', 'http://www.cryingoverspiltmilk.co.nz/wp-content/uploads/2015/03/pixabay/b/recipe_1426460443.png'),
