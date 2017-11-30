@@ -1,4 +1,9 @@
-.btn-margin {
+.btn-margin-bottom {
   margin-left: 15px;
-  margin-top: 20px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.btn-margin-top {
+  margin-bottom: 20px;
 }
